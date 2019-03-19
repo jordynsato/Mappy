@@ -3,7 +3,7 @@
 [ext_resource path="res://tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 
-[node name="World" type="Node2D" index="0"]
+[node name="World" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
@@ -30,6 +30,7 @@ _sections_unfolded = [ "Cell", "Transform" ]
 [node name="Player" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 1056.81, 803.908 )
+SPEED = 300
 
 [node name="Sprite2" type="Sprite" parent="Player" index="4"]
 
