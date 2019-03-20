@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://cat4-sprite@2x.png" type="Texture" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+SPEED = 300
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "default"
+
+[node name="cat4-sprite2x" type="Sprite" parent="AnimatedSprite" index="0"]
+
+position = Vector2( 624, 348 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Animation" ]
+
+

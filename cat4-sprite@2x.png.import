@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/laserBlueHorizontal.png-d1a4373ea846611c97e108b12a129c6b.stex"
+path="res://.import/cat4-sprite@2x.png-5955148e91e912f00294e9e6cc81194a.stex"
 
 [deps]
 
-source_file="res://laserBlueHorizontal.png"
-dest_files=[ "res://.import/laserBlueHorizontal.png-d1a4373ea846611c97e108b12a129c6b.stex" ]
+source_file="res://cat4-sprite@2x.png"
+dest_files=[ "res://.import/cat4-sprite@2x.png-5955148e91e912f00294e9e6cc81194a.stex" ]
 
 [params]
 
