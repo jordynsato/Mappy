@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Enemy.gd" type="Script" id=1]
 [ext_resource path="res://png/dog/Dead (7).png" type="Texture" id=2]
@@ -49,6 +49,11 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
 [node name="Enemy" type="KinematicBody2D"]
 
 position = Vector2( 217.681, 171.671 )
@@ -65,12 +70,13 @@ position = Vector2( -0.531851, -0.255837 )
 scale = Vector2( 0.118729, 0.133842 )
 frames = SubResource( 1 )
 animation = "walk"
-frame = 6
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 position = Vector2( -0.371858, 5.14622 )
 scale = Vector2( 1.03719, 2.43264 )
+shape = SubResource( 2 )
 
 
