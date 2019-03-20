@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=3]
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" index="0"]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
-position = Vector2( 2, 0 )
+position = Vector2( -313.081, -123.292 )
 mode = 0
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 64, 64 )
@@ -29,9 +30,16 @@ _sections_unfolded = [ "Cell", "Transform" ]
 
 [node name="Player" parent="." index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 1056.81, 803.908 )
-SPEED = 300
+position = Vector2( 793.101, 684.04 )
 
 [node name="Sprite2" type="Sprite" parent="Player" index="4"]
+
+position = Vector2( 0, 3.19409 )
+scale = Vector2( 1, -2.19409 )
+
+[node name="Enemy" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 479.33, 681.379 )
+scale = Vector2( 1.42414, 0.978022 )
 
 
