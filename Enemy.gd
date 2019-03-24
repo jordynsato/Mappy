@@ -2,37 +2,52 @@ extends KinematicBody2D
 
 onready var player_scene = preload("res://Player.tscn")
 var velocity = Vector2()
-var SPEED = 250
-var rando = 0
-var _timer = null
+var SPEED = 100
 var integer = 0
+var rando = 0
+var ydir = 100
+#export var SPEED = 300
+export var gravity = 400
+export var jumpV = -400
 
 func _ready():
-	#_timer = Timer.new()
-	#add_child(_timer)
-	
-	#_timer.connect("timeou", self, "_on_Timer_timeout")
-	#_timer.set_wait_time(20.0)
-	#_timer.set_one_shot(false)
-	#_timer.start()
-	pass
+    # Called when the node is added to the scene for the first time.
+    # Initialization here
+    pass
 
 func _process(delta):
 	integer=integer+1
 	if(integer%30 == 0):
 		rando = randi()%2
     
-	if(rando == 0):
+	if(rando == 0 and velocity.y >= 0):
         velocity.x = -SPEED
         $AnimatedSprite.flip_h = true
         $AnimatedSprite.play("walk")
 	
-	else: #(rando ==1):
+	else: 
         velocity.x = SPEED
         $AnimatedSprite.flip_h = false
         $AnimatedSprite.play("walk")
-    #else:
-    #    velocity.x = 0
-    #    $AnimatedSprite.play("idle")
-	move_and_slide(velocity)
-	pass
+	#velocity.y = ydir
+	move_and_slide(velocity,Vector2(0,0))
+
+
+func _on_JumpBox1_area_entered(area):
+	if area.is_in_group("jump"):
+		velocity.y = jumpV
+		print("jump")
+	if area.is_in_group("floor"):
+		velocity.y = 0
+	#	print("player stopping")s # replace with function body
+
+
+func _on_DownBox1_area_entered(area):
+	#if area.is_in_group("down"):
+		velocity.y = gravity
+	 # replace with function body
+
+
+func _on_JumpBox1_area_exited(area):
+	if area.is_in_group("floor"):
+		velocity.y = gravity

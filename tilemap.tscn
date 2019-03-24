@@ -1,70 +1,17 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://apple.png" type="Texture" id=1]
-[ext_resource path="res://green_rope.png" type="Texture" id=2]
-[ext_resource path="res://box.png" type="Texture" id=3]
-[ext_resource path="res://lpc-doors-animated-1.png" type="Texture" id=4]
-[ext_resource path="res://door_open.png" type="Texture" id=5]
-[ext_resource path="res://soup.png" type="Texture" id=6]
-[ext_resource path="res://sundae.png" type="Texture" id=7]
-[ext_resource path="res://pizza.png" type="Texture" id=8]
-[ext_resource path="res://bread.png" type="Texture" id=9]
+[ext_resource path="res://box.png" type="Texture" id=1]
 
 [node name="root" type="Node" index="0"]
 
-[node name="apple" type="Sprite" parent="." index="0"]
+[node name="box" type="Sprite" parent="." index="0"]
 
-editor/display_folded = true
-position = Vector2( 0, 128 )
+position = Vector2( 32.7834, 4.16574 )
 texture = ExtResource( 1 )
-centered = false
-_sections_unfolded = [ "Offset" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="apple" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="apple/StaticBody2D" index="0"]
-
-build_mode = 0
-polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
-
-[node name="green_rope" type="Sprite" parent="." index="1"]
-
-editor/display_folded = true
-position = Vector2( -64, 0 )
-texture = ExtResource( 2 )
-centered = false
-_sections_unfolded = [ "Offset" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="green_rope" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="green_rope/StaticBody2D" index="0"]
-
-build_mode = 0
-polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
-
-[node name="box" type="Sprite" parent="." index="2"]
-
-editor/display_folded = true
-position = Vector2( 128, 0 )
-texture = ExtResource( 3 )
-centered = false
-_sections_unfolded = [ "Offset" ]
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="StaticBody2D" type="StaticBody2D" parent="box" index="0"]
 
@@ -75,147 +22,12 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "Z Index" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="box/StaticBody2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
-
-[node name="closed_door" type="Sprite" parent="." index="3"]
-
-editor/display_folded = true
-position = Vector2( 256, 0 )
-texture = ExtResource( 4 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 0, 15, 64, 64 )
-_sections_unfolded = [ "Offset", "Region", "Transform", "Z Index" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="closed_door" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="closed_door/StaticBody2D" index="0"]
-
-build_mode = 0
-polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
-
-[node name="door_open" type="Sprite" parent="." index="4"]
-
-editor/display_folded = true
-position = Vector2( 384, 0 )
-texture = ExtResource( 5 )
-centered = false
-_sections_unfolded = [ "Offset" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="door_open" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="door_open" index="1"]
-
-build_mode = 0
-polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
-
-[node name="soup" type="Sprite" parent="." index="5"]
-
-editor/display_folded = true
-position = Vector2( 128, 128 )
-texture = ExtResource( 6 )
-centered = false
-_sections_unfolded = [ "Offset" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="soup" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="soup/StaticBody2D" index="0"]
-
-build_mode = 0
-polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
-
-[node name="sundae" type="Sprite" parent="." index="6"]
-
-position = Vector2( 384, 128 )
-texture = ExtResource( 7 )
-centered = false
-_sections_unfolded = [ "Offset", "Transform" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="sundae" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="sundae/StaticBody2D" index="0"]
-
-build_mode = 0
-polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
-
-[node name="pizza" type="Sprite" parent="." index="7"]
-
-position = Vector2( 256, 128 )
-texture = ExtResource( 8 )
-centered = false
-_sections_unfolded = [ "Offset" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="pizza" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="pizza/StaticBody2D" index="0"]
-
-build_mode = 0
-polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
-
-[node name="bread" type="Sprite" parent="." index="8"]
-
-position = Vector2( 512, 128 )
-texture = ExtResource( 9 )
-centered = false
-_sections_unfolded = [ "Offset" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="bread" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bread/StaticBody2D" index="0"]
-
-build_mode = 0
-polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+polygon = PoolVector2Array( -31.565, -31.3184, 31.5382, -31.3184, 31.718, 31.9646, -31.565, 32.1443 )
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 
