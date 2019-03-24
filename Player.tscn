@@ -49,7 +49,7 @@ extents = Vector2( 20.5684, 25.9961 )
 custom_solver_bias = 0.0
 extents = Vector2( 21.7663, 10 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -66,7 +66,7 @@ position = Vector2( 2.67741, -6.81478 )
 scale = Vector2( 0.142361, 0.142538 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 6
+frame = 2
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
