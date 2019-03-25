@@ -89,6 +89,7 @@ build_mode = 0
 polygon = PoolVector2Array( -7.52818, 25.7616, 4.31291, 25.0927, 5.92761, 16.3974, 16.154, 1.68222, 12.9246, -17.715, -10.2193, -17.0462, -14.5252, -0.324391 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
+
 [node name="JumpBox1" type="Area2D" parent="." index="2"]
 
 position = Vector2( -1.63416, 25.3944 )
@@ -130,6 +131,7 @@ position = Vector2( 2.32727, -0.134613 )
 scale = Vector2( 2.46154, 1.8522 )
 shape = SubResource( 3 )
 _sections_unfolded = [ "Material", "Visibility" ]
+
 
 [connection signal="area_entered" from="JumpBox1" to="." method="_on_JumpBox1_area_entered"]
 

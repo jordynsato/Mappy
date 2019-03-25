@@ -144,6 +144,7 @@ audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision", "Pause" ]
 
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DownBox" index="0"]
 
 position = Vector2( 0.149352, -31.8382 )
@@ -174,5 +175,6 @@ shape = SubResource( 4 )
 [connection signal="area_entered" from="DownBox" to="." method="_on_DownBox_area_entered"]
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+
 
 

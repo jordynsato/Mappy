@@ -30,23 +30,19 @@ func _process(delta):
 		velocity.x = 0
 	move_and_slide(velocity,Vector2(0,0))
 
-
 func _on_JumpBox1_area_entered(area):
 	if area.is_in_group("jump"):
 		velocity.y = jumpV
 		set_collision_mask_bit(2, false)
-		print("jump")
 	if area.is_in_group("floor"):
 		velocity.y = 0
 		set_collision_mask_bit(2, true)
-	#	print("player stopping")s # replace with function body
 
 
 func _on_DownBox1_area_entered(area):
 	if area.is_in_group("down"):
 		velocity.y = gravity
 		set_collision_mask_bit(2, false)
-	 # replace with function body
 
 
 func _on_JumpBox1_area_exited(area):
