@@ -33,7 +33,7 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
@@ -369,14 +369,12 @@ shape = SubResource( 1 )
 
 [node name="Ropes" type="Node2D" parent="." index="3"]
 
-editor/display_folded = true
-
 [node name="Rope1" type="Area2D" parent="Ropes" index="0" groups=[
 "jump",
 ]]
 
 editor/display_folded = true
-position = Vector2( -124.639, 840.205 )
+position = Vector2( -124.639, 862.205 )
 scale = Vector2( 1, 1.41026 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -404,7 +402,7 @@ texture = ExtResource( 5 )
 ]]
 
 editor/display_folded = true
-position = Vector2( 194.19, 839.663 )
+position = Vector2( 194.19, 861.663 )
 scale = Vector2( 1, 1.41026 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -432,7 +430,7 @@ texture = ExtResource( 5 )
 ]]
 
 editor/display_folded = true
-position = Vector2( 579.431, 839.564 )
+position = Vector2( 579.431, 862.891 )
 scale = Vector2( 1, 1.41026 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -459,8 +457,7 @@ texture = ExtResource( 5 )
 "jump",
 ]]
 
-editor/display_folded = true
-position = Vector2( 899.556, 839.889 )
+position = Vector2( 899.556, 862.889 )
 scale = Vector2( 1, 1.41026 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )

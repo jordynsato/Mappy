@@ -15,11 +15,5 @@ func _ready():
 #	pass
 
 
-func _on_Start_OG_Game_pressed():
-	get_tree().change_scene("res://World.tscn")
-	pass # replace with function body
-
-
-func _on_Sound_Menu_pressed():
-	get_tree().change_scene("res://SoundMenu.tscn")
-	pass # replace with function body
+func _on_Button_pressed():
+	get_tree().change_scene("res://MainMenu.tscn")

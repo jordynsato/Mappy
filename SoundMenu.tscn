@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://MainMenu.gd" type="Script" id=1]
-
-[sub_resource type="Theme" id=1]
-
+[ext_resource path="res://SoundMenu.gd" type="Script" id=1]
 
 [node name="Control" type="Control"]
 
@@ -18,7 +15,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Anchor", "Margin" ]
 
 [node name="CenterContainer" type="CenterContainer" parent="." index="0"]
 
@@ -32,9 +28,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-theme = SubResource( 1 )
 use_top_left = false
-_sections_unfolded = [ "Theme" ]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" index="0"]
 
@@ -42,10 +36,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 464.0
-margin_top = 257.0
-margin_right = 559.0
-margin_bottom = 343.0
+margin_left = 455.0
+margin_top = 253.0
+margin_right = 569.0
+margin_bottom = 347.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -54,13 +48,13 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="Title" type="Label" parent="CenterContainer/VBoxContainer" index="0"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 95.0
+margin_right = 114.0
 margin_bottom = 14.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -68,20 +62,20 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Mappy"
+text = "Sound Menu"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Start OG Game" type="Button" parent="CenterContainer/VBoxContainer" index="1"]
+[node name="Sound" type="CheckBox" parent="CenterContainer/VBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 18.0
-margin_right = 95.0
-margin_bottom = 38.0
+margin_right = 114.0
+margin_bottom = 42.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -89,23 +83,23 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-toggle_mode = false
+toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Start Original"
+text = "Sound On/Off"
 flat = false
-align = 1
+align = 0
 
-[node name="Start Variant" type="Button" parent="CenterContainer/VBoxContainer" index="2"]
+[node name="Music" type="CheckBox" parent="CenterContainer/VBoxContainer" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 42.0
-margin_right = 95.0
-margin_bottom = 62.0
+margin_top = 46.0
+margin_right = 114.0
+margin_bottom = 70.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -113,23 +107,23 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-toggle_mode = false
+toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Start Variant"
+text = "Music On/Off"
 flat = false
-align = 1
+align = 0
 
-[node name="Sound Menu" type="Button" parent="CenterContainer/VBoxContainer" index="3"]
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 66.0
-margin_right = 95.0
-margin_bottom = 86.0
+margin_top = 74.0
+margin_right = 114.0
+margin_bottom = 94.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -141,12 +135,10 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Settings"
+text = "Back"
 flat = false
 align = 1
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Start OG Game" to="." method="_on_Start_OG_Game_pressed"]
-
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Sound Menu" to="." method="_on_Sound_Menu_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 
 
