@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 var velocity = Vector2(0,0)
 export var SPEED = 300
-export var gravity = 800
-export var jumpV = -800
+export var gravity = 400
+export var jumpV = -400
 
 func _ready():
     # Called when the node is added to the scene for the first time.
@@ -22,24 +22,32 @@ func _process(delta):
 	else:
         velocity.x = 0
         $AnimatedSprite.play("idle")
-	
 	move_and_slide(velocity,Vector2(0,0))
 
 func _on_JumpBox_area_entered(area):
 	if area.is_in_group("jump"):
 		velocity.y = jumpV
+		set_collision_mask_bit(3, false)
 		print("jump")
 	if area.is_in_group("floor"):
+		set_collision_mask_bit(3, true)
 		velocity.y = 0
-		print("stopping")
+	#	print("player stopping")
 
 func _on_DownBox_area_entered(area):
 	if area.is_in_group("down"):
 		velocity.y = gravity
-		print("down")
+		set_collision_mask_bit(3, false)
+	#	print(" player down")
 
 
 func _on_JumpBox_area_exited(area):
 	if area.is_in_group("floor"):
 		velocity.y = gravity
-		print("falling")
+		set_collision_mask_bit(3, false)
+#		print(" player falling")
+
+
+func _on_HurtBox_area_entered(area):
+	if area.is_in_group("enemy"):
+		queue_free()
