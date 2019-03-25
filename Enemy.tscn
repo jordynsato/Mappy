@@ -1,51 +1,51 @@
 [gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Enemy.gd" type="Script" id=1]
-[ext_resource path="res://png/dog/Jump (1).png" type="Texture" id=2]
-[ext_resource path="res://png/dog/Jump (2).png" type="Texture" id=3]
-[ext_resource path="res://png/dog/Jump (4).png" type="Texture" id=4]
-[ext_resource path="res://png/dog/Jump (3).png" type="Texture" id=5]
-[ext_resource path="res://png/dog/Jump (5).png" type="Texture" id=6]
-[ext_resource path="res://png/dog/Jump (6).png" type="Texture" id=7]
-[ext_resource path="res://png/dog/Jump (7).png" type="Texture" id=8]
-[ext_resource path="res://png/dog/Jump (8).png" type="Texture" id=9]
-[ext_resource path="res://png/dog/Run (1).png" type="Texture" id=10]
-[ext_resource path="res://png/dog/Run (3).png" type="Texture" id=11]
-[ext_resource path="res://png/dog/Run (4).png" type="Texture" id=12]
-[ext_resource path="res://png/dog/Run (2).png" type="Texture" id=13]
-[ext_resource path="res://png/dog/Run (5).png" type="Texture" id=14]
-[ext_resource path="res://png/dog/Run (6).png" type="Texture" id=15]
-[ext_resource path="res://png/dog/Run (7).png" type="Texture" id=16]
-[ext_resource path="res://png/dog/Run (8).png" type="Texture" id=17]
-[ext_resource path="res://png/dog/Dead (1).png" type="Texture" id=18]
-[ext_resource path="res://png/dog/Dead (2).png" type="Texture" id=19]
-[ext_resource path="res://png/dog/Dead (3).png" type="Texture" id=20]
-[ext_resource path="res://png/dog/Dead (4).png" type="Texture" id=21]
-[ext_resource path="res://png/dog/Dead (5).png" type="Texture" id=22]
-[ext_resource path="res://png/dog/Dead (6).png" type="Texture" id=23]
-[ext_resource path="res://png/dog/Dead (7).png" type="Texture" id=24]
+[ext_resource path="res://png/dog/Dead (1).png" type="Texture" id=2]
+[ext_resource path="res://png/dog/Dead (2).png" type="Texture" id=3]
+[ext_resource path="res://png/dog/Dead (3).png" type="Texture" id=4]
+[ext_resource path="res://png/dog/Dead (4).png" type="Texture" id=5]
+[ext_resource path="res://png/dog/Dead (5).png" type="Texture" id=6]
+[ext_resource path="res://png/dog/Dead (6).png" type="Texture" id=7]
+[ext_resource path="res://png/dog/Dead (7).png" type="Texture" id=8]
+[ext_resource path="res://png/dog/Jump (1).png" type="Texture" id=9]
+[ext_resource path="res://png/dog/Jump (2).png" type="Texture" id=10]
+[ext_resource path="res://png/dog/Jump (4).png" type="Texture" id=11]
+[ext_resource path="res://png/dog/Jump (3).png" type="Texture" id=12]
+[ext_resource path="res://png/dog/Jump (5).png" type="Texture" id=13]
+[ext_resource path="res://png/dog/Jump (6).png" type="Texture" id=14]
+[ext_resource path="res://png/dog/Jump (7).png" type="Texture" id=15]
+[ext_resource path="res://png/dog/Jump (8).png" type="Texture" id=16]
+[ext_resource path="res://png/dog/Run (1).png" type="Texture" id=17]
+[ext_resource path="res://png/dog/Run (3).png" type="Texture" id=18]
+[ext_resource path="res://png/dog/Run (4).png" type="Texture" id=19]
+[ext_resource path="res://png/dog/Run (2).png" type="Texture" id=20]
+[ext_resource path="res://png/dog/Run (5).png" type="Texture" id=21]
+[ext_resource path="res://png/dog/Run (6).png" type="Texture" id=22]
+[ext_resource path="res://png/dog/Run (7).png" type="Texture" id=23]
+[ext_resource path="res://png/dog/Run (8).png" type="Texture" id=24]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
-"loop": true,
-"name": "walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "hit",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 24 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "walk",
 "speed": 5.0
 } ]
 
@@ -64,10 +64,11 @@ extents = Vector2( 10, 14.3495 )
 position = Vector2( 217.681, 171.671 )
 scale = Vector2( 6.70716, 5.39716 )
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 8
+collision_mask = 7
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "collision" ]
 gravity = 400
 jumpV = -400
 
@@ -77,13 +78,17 @@ position = Vector2( -0.531851, -0.255837 )
 scale = Vector2( 0.118729, 0.133842 )
 frames = SubResource( 1 )
 animation = "walk"
-frame = 4
+frame = 6
 playing = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1" groups=[
+"enemy",
+]]
 
 build_mode = 0
 polygon = PoolVector2Array( -7.52818, 25.7616, 4.31291, 25.0927, 5.92761, 16.3974, 16.154, 1.68222, 12.9246, -17.715, -10.2193, -17.0462, -14.5252, -0.324391 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
 
 [node name="JumpBox1" type="Area2D" parent="." index="2"]
 
@@ -94,15 +99,18 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision_layer = 4
+collision_mask = 3
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Audio Bus", "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index" ]
+_sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpBox1" index="0"]
 
 position = Vector2( 1.52626, 3.59974 )
 scale = Vector2( 2.90909, 3.42337 )
 shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="DownBox1" type="Area2D" parent="." index="3"]
 
@@ -115,12 +123,15 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DownBox1" index="0"]
 
 position = Vector2( 2.32727, -0.134613 )
 scale = Vector2( 2.46154, 1.8522 )
 shape = SubResource( 3 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
 
 [connection signal="area_entered" from="JumpBox1" to="." method="_on_JumpBox1_area_entered"]
 

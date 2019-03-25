@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://png/cat/Idle (1).png" type="Texture" id=2]
@@ -49,13 +49,19 @@ extents = Vector2( 20.5684, 25.9961 )
 custom_solver_bias = 0.0
 extents = Vector2( 21.7663, 10 )
 
-[node name="Player" type="KinematicBody2D"]
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 6.52544, 10 )
+
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 4
+collision_mask = 27
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
 SPEED = 300
 gravity = 400
 jumpV = -400
@@ -66,7 +72,7 @@ position = Vector2( 2.67741, -6.81478 )
 scale = Vector2( 0.142361, 0.142538 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 7
+frame = 6
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
@@ -86,8 +92,11 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision_layer = 4
+collision_mask = 3
 audio_bus_override = false
 audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpBox" index="0"]
 
@@ -133,7 +142,8 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Pause" ]
+_sections_unfolded = [ "Collision", "Pause" ]
+
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DownBox" index="0"]
 
@@ -141,10 +151,30 @@ position = Vector2( 0.149352, -31.8382 )
 scale = Vector2( 0.965653, 0.473986 )
 shape = SubResource( 3 )
 
+[node name="HurtBox" type="Area2D" parent="." index="5"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Pickable" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" index="0"]
+
+position = Vector2( -0.0496063, -1.75308 )
+scale = Vector2( 2.03358, 2.55397 )
+shape = SubResource( 4 )
+
 [connection signal="area_entered" from="JumpBox" to="." method="_on_JumpBox_area_entered"]
 
 [connection signal="area_exited" from="JumpBox" to="." method="_on_JumpBox_area_exited"]
 
 [connection signal="area_entered" from="DownBox" to="." method="_on_DownBox_area_entered"]
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+
 
 

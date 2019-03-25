@@ -29,26 +29,24 @@ func _process(delta):
 	else:
 		velocity.x = 0
 	move_and_slide(velocity,Vector2(0,0))
-	if (is_on_floor()):
-		print("floor")
-	else:
-		print("fu")
-
 
 func _on_JumpBox1_area_entered(area):
 	if area.is_in_group("jump"):
 		velocity.y = jumpV
-		print("jump")
+		set_collision_mask_bit(2, false)
 	if area.is_in_group("floor"):
 		velocity.y = 0
-	#	print("player stopping")s # replace with function body
+		set_collision_mask_bit(2, true)
 
 
 func _on_DownBox1_area_entered(area):
-	#if area.is_in_group("down"):
+	if area.is_in_group("down"):
 		velocity.y = gravity
-	 # replace with function body
+		set_collision_mask_bit(2, false)
 
 
 func _on_JumpBox1_area_exited(area):
+	if area.is_in_group("floor"):
+		velocity.y = gravity
+		set_collision_mask_bit(2, false)
 	rando = randi()%2
