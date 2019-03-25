@@ -17,3 +17,11 @@ func _ready():
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://MainMenu.tscn")
+
+
+func _on_Music_toggled(button_pressed):
+	pass # replace with function body
+
+
+func _on_Sound_toggled(button_pressed):
+	pass # replace with function body

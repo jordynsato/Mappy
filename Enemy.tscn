@@ -87,8 +87,8 @@ polygon = PoolVector2Array( -7.52818, 25.7616, 4.31291, 25.0927, 5.92761, 16.397
 
 [node name="JumpBox1" type="Area2D" parent="." index="2"]
 
-position = Vector2( -2.68409, 23.755 )
-scale = Vector2( 0.370034, 0.104511 )
+position = Vector2( -1.63416, 25.3944 )
+scale = Vector2( 0.370034, 0.114968 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -100,7 +100,7 @@ _sections_unfolded = [ "Audio Bus", "Collision", "Material", "Pause", "Pickable"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpBox1" index="0"]
 
-position = Vector2( 4.36364, 12.1115 )
+position = Vector2( 1.52626, 3.59974 )
 scale = Vector2( 2.90909, 3.42337 )
 shape = SubResource( 2 )
 

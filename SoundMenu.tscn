@@ -139,6 +139,10 @@ text = "Back"
 flat = false
 align = 1
 
+[connection signal="toggled" from="CenterContainer/VBoxContainer/Sound" to="." method="_on_Sound_toggled"]
+
+[connection signal="toggled" from="CenterContainer/VBoxContainer/Music" to="." method="_on_Music_toggled"]
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://pizza.png" type="Texture" id=10]
 [ext_resource path="res://bread.png" type="Texture" id=11]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=12]
+[ext_resource path="res://bensound-funnysong.wav" type="AudioStream" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -368,6 +369,8 @@ position = Vector2( 0, -23.2805 )
 shape = SubResource( 1 )
 
 [node name="Ropes" type="Node2D" parent="." index="3"]
+
+editor/display_folded = true
 
 [node name="Rope1" type="Area2D" parent="Ropes" index="0" groups=[
 "jump",
@@ -822,8 +825,17 @@ shape = SubResource( 4 )
 
 [node name="Enemy" parent="." index="6" instance=ExtResource( 12 )]
 
-position = Vector2( 663.39, 686.388 )
+position = Vector2( 664.365, 688.339 )
 scale = Vector2( 1.29822, 0.943587 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = ExtResource( 13 )
+volume_db = -0.19
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 [connection signal="body_entered" from="Pick-up Items/Area2D" to="Pick-up Items/Area2D" method="_on_Area2D_body_entered"]
 

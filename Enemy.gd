@@ -13,24 +13,26 @@ export var jumpV = -400
 func _ready():
     # Called when the node is added to the scene for the first time.
     # Initialization here
-    pass
+	velocity.x = -SPEED
+	pass
 
 func _process(delta):
-	integer=integer+1
-	if(integer%30 == 0):
-		rando = randi()%2
-    
-	if(rando == 0 and velocity.y >= 0):
-        velocity.x = -SPEED
-        $AnimatedSprite.flip_h = true
-        $AnimatedSprite.play("walk")
-	
-	else: 
-        velocity.x = SPEED
-        $AnimatedSprite.flip_h = false
-        $AnimatedSprite.play("walk")
-	#velocity.y = ydir
+	if (velocity.y <=0):
+		if(rando == 0):
+    	    velocity.x = -SPEED
+    	    $AnimatedSprite.flip_h = true
+    	    $AnimatedSprite.play("walk")
+		else: 
+    	    velocity.x = SPEED
+    	    $AnimatedSprite.flip_h = false
+    	    $AnimatedSprite.play("walk")
+	else:
+		velocity.x = 0
 	move_and_slide(velocity,Vector2(0,0))
+	if (is_on_floor()):
+		print("floor")
+	else:
+		print("fu")
 
 
 func _on_JumpBox1_area_entered(area):
@@ -49,5 +51,4 @@ func _on_DownBox1_area_entered(area):
 
 
 func _on_JumpBox1_area_exited(area):
-	if area.is_in_group("floor"):
-		velocity.y = gravity
+	rando = randi()%2
