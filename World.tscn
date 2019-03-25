@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://apple.png" type="Texture" id=10]
 [ext_resource path="res://pizza.png" type="Texture" id=11]
 [ext_resource path="res://bread.png" type="Texture" id=12]
+[ext_resource path="res://bensound-funnysong.wav" type="AudioStream" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -22,7 +23,6 @@ extents = Vector2( 32.0933, 10 )
 
 custom_solver_bias = 0.0
 extents = Vector2( 53.8624, 1.7038 )
-
 
 [sub_resource type="RectangleShape2D" id=3]
 
@@ -54,7 +54,6 @@ scale = Vector2( 1.29822, 0.943587 )
 position = Vector2( -220.338, 12 )
 mode = 0
 tile_set = ExtResource( 4 )
-
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -75,7 +74,6 @@ _sections_unfolded = [ "Cell", "Collision", "Material", "Occluder", "Pause", "Tr
 [node name="Platforms" type="Node2D" parent="." index="3"]
 
 editor/display_folded = true
-
 
 [node name="Platform 1,1" type="Area2D" parent="Platforms" index="0" groups=[
 "floor",
@@ -382,7 +380,6 @@ shape = SubResource( 1 )
 editor/display_folded = true
 _sections_unfolded = [ "Visibility" ]
 
-
 [node name="Rope1" type="Area2D" parent="Ropes" index="0" groups=[
 "jump",
 ]]
@@ -414,7 +411,6 @@ position = Vector2( 0.697998, 4.60413 )
 scale = Vector2( 1, 0.709088 )
 texture = ExtResource( 6 )
 
-
 [node name="Rope2" type="Area2D" parent="Ropes" index="1" groups=[
 "jump",
 ]]
@@ -433,7 +429,6 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 5 )
 _sections_unfolded = [ "Collision" ]
-
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ropes/Rope2" index="0"]
 
@@ -466,7 +461,6 @@ audio_bus_name = "Master"
 script = ExtResource( 5 )
 _sections_unfolded = [ "Collision" ]
 
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ropes/Rope3" index="0"]
 
 position = Vector2( 0.528992, 6.64607 )
@@ -478,7 +472,6 @@ shape = SubResource( 2 )
 position = Vector2( 0.697998, 4.60413 )
 scale = Vector2( 1, 0.709088 )
 texture = ExtResource( 6 )
-
 
 [node name="Rope4" type="Area2D" parent="Ropes" index="3" groups=[
 "jump",
@@ -512,14 +505,12 @@ texture = ExtResource( 6 )
 
 [node name="Pick-up Items" type="Node2D" parent="." index="5"]
 
-
 editor/display_folded = true
 
 [node name="Area2D" type="Area2D" parent="Pick-up Items" index="0"]
 
 editor/display_folded = true
 position = Vector2( 708.203, 822.593 )
-
 scale = Vector2( 0.859376, 1.00749 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -531,7 +522,6 @@ collision_mask = 5
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 7 )
-
 _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pick-up Items/Area2D" index="0"]
@@ -562,7 +552,6 @@ collision_mask = 5
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 7 )
-
 _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pick-up Items/Area2D3" index="0"]
@@ -789,6 +778,7 @@ scale = Vector2( 1.14357, 1.05849 )
 texture = ExtResource( 8 )
 
 [node name="Going Down" type="Node2D" parent="." index="6"]
+
 editor/display_folded = true
 
 [node name="Down1" type="Area2D" parent="Going Down" index="0" groups=[
@@ -870,6 +860,17 @@ audio_bus_name = "Master"
 position = Vector2( -0.9217, 23 )
 scale = Vector2( 3.29582, 1 )
 shape = SubResource( 4 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="7"]
+
+stream = ExtResource( 13 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [connection signal="body_entered" from="Pick-up Items/Area2D" to="Pick-up Items/Area2D" method="_on_Area2D_body_entered"]
 
