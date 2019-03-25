@@ -5,8 +5,6 @@ extends Control
 # var b = "textvar"
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
 	pass
 
 #func _process(delta):
@@ -22,4 +20,9 @@ func _on_Start_OG_Game_pressed():
 
 func _on_Sound_Menu_pressed():
 	get_tree().change_scene("res://SoundMenu.tscn")
+	pass # replace with function body
+
+
+func _on_Start_Variant_pressed():
+	get_tree().change_scene("res://Variant.tscn")
 	pass # replace with function body
