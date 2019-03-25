@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bensound-funnysong.wav-4b49501deea57f59b6a8a0f2dc3a3c00.sample"
+
+[deps]
+
+source_file="res://bensound-funnysong.wav"
+dest_files=[ "res://.import/bensound-funnysong.wav-4b49501deea57f59b6a8a0f2dc3a3c00.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -9,13 +9,11 @@ func _ready():
 	# Initialization here
 	pass
 
-func _process(delta):
-	pass
-		
-
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
 func _on_Area2D_body_entered(body):
 	if body.get_name() == "Player":
-		queue_free()
-	if body.get_name() == "Enemy":
-		queue_free()
-		#increment number of collected counter
+		get_parent().get_node("Player").x = 935
+		get_parent().get_node("Player").velocity.y = -100

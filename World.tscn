@@ -1,16 +1,35 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://ourset.tres" type="TileSet" id=3]
-[ext_resource path="res://Area2D.gd" type="Script" id=4]
-[ext_resource path="res://soup.png" type="Texture" id=5]
-[ext_resource path="res://sundae.png" type="Texture" id=6]
-[ext_resource path="res://apple.png" type="Texture" id=7]
-[ext_resource path="res://pizza.png" type="Texture" id=8]
-[ext_resource path="res://bread.png" type="Texture" id=9]
+[ext_resource path="res://box.tres" type="TileSet" id=3]
+[ext_resource path="res://HitBox.gd" type="Script" id=4]
+[ext_resource path="res://green_rope.png" type="Texture" id=5]
+[ext_resource path="res://Area2D.gd" type="Script" id=6]
+[ext_resource path="res://soup.png" type="Texture" id=7]
+[ext_resource path="res://sundae.png" type="Texture" id=8]
+[ext_resource path="res://apple.png" type="Texture" id=9]
+[ext_resource path="res://pizza.png" type="Texture" id=10]
+[ext_resource path="res://bread.png" type="Texture" id=11]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=12]
+[ext_resource path="res://bensound-funnysong.wav" type="AudioStream" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32.0933, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 53.8624, 1.7038 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -22,13 +41,12 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 2 )]
 
-position = Vector2( 898.81, 818.908 )
-
-[node name="Sprite2" type="Sprite" parent="Player" index="4"]
+position = Vector2( 835.81, 690.908 )
+_sections_unfolded = [ "Collision", "collision" ]
 
 [node name="Tiles" type="TileMap" parent="." index="1"]
 
-position = Vector2( -220, 12 )
+position = Vector2( -220.338, 12 )
 mode = 0
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 64, 64 )
@@ -45,11 +63,433 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 65551, 1, 0, 65552, 1, 0, 65553, 1, 0, 65554, 1, 0, 131072, 1, 0, 131075, 2, 0, 131086, 2, 0, 131090, 1, 0, 196608, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 1, 0, 196618, 1, 0, 196619, 1, 0, 196621, 1, 0, 196622, 1, 0, 196623, 1, 0, 196624, 1, 0, 196626, 1, 0, 262144, 1, 0, 262147, 2, 0, 262153, 2, 0, 262162, 1, 0, 327680, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 1, 0, 327691, 1, 0, 327693, 1, 0, 327694, 1, 0, 327695, 1, 0, 327696, 1, 0, 327698, 1, 0, 393216, 1, 0, 393230, 2, 0, 393234, 1, 0, 458752, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 1, 0, 458770, 1, 0, 524288, 1, 0, 524291, 2, 0, 524297, 2, 0, 524306, 1, 0, 589824, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589842, 1, 0, 655360, 1, 0, 655374, 2, 0, 655378, 1, 0, 720896, 1, 0, 720898, 1, 0, 720899, 1, 0, 720900, 1, 0, 720901, 1, 0, 720903, 1, 0, 720904, 1, 0, 720905, 1, 0, 720906, 1, 0, 720907, 1, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 720914, 1, 0, 786432, 1, 0, 786435, 2, 0, 786441, 2, 0, 786450, 1, 0, 851968, 1, 0, 851969, 0, 0, 851970, 1, 0, 851971, 1, 0, 851972, 1, 0, 851973, 1, 0, 851974, 0, 0, 851975, 1, 0, 851976, 1, 0, 851977, 1, 0, 851978, 1, 0, 851979, 1, 0, 851980, 0, 0, 851981, 1, 0, 851982, 1, 0, 851983, 1, 0, 851984, 1, 0, 851985, 0, 0, 851986, 1, 0, 1048582, 4, 0, 1048583, 4, 0 )
-_sections_unfolded = [ "Cell" ]
+tile_data = PoolIntArray( 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 131072, 0, 0, 131075, 2, 0, 131086, 2, 0, 131090, 0, 0, 196608, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196626, 0, 0, 262144, 0, 0, 262147, 2, 0, 262153, 2, 0, 262162, 0, 0, 327680, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327698, 0, 0, 393216, 0, 0, 393230, 2, 0, 393234, 0, 0, 458752, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458770, 0, 0, 524288, 0, 0, 524291, 2, 0, 524297, 2, 0, 524306, 0, 0, 589824, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 589842, 0, 0, 655360, 0, 0, 655374, 2, 0, 655378, 0, 0, 720896, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720914, 0, 0, 786432, 0, 0, 786435, 2, 0, 786441, 2, 0, 786450, 0, 0, 851968, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851986, 0, 0 )
+_sections_unfolded = [ "Cell", "Collision", "Material", "Occluder", "Pause", "Transform", "Visibility", "Z Index" ]
 
-[node name="Area2D" type="Area2D" parent="." index="2"]
+[node name="Platforms" type="Node2D" parent="." index="2"]
 
+[node name="Platform 1,1" type="Area2D" parent="Platforms" index="0" groups=[
+"floor",
+]]
+
+editor/display_folded = true
+position = Vector2( 35.7011, 236.646 )
+scale = Vector2( 3.98544, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform 1,1" index="0"]
+
+position = Vector2( 0, -23.2805 )
+shape = SubResource( 1 )
+
+[node name="Platform 1,2" type="Area2D" parent="Platforms" index="1" groups=[
+"floor",
+]]
+
+editor/display_folded = true
+position = Vector2( 36.3221, 364.22 )
+scale = Vector2( 3.98544, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform 1,2" index="0"]
+
+position = Vector2( 0, -23.2805 )
+shape = SubResource( 1 )
+
+[node name="Platform 1,3" type="Area2D" parent="Platforms" index="2" groups=[
+"floor",
+]]
+
+editor/display_folded = true
+position = Vector2( 35.4345, 492.176 )
+scale = Vector2( 3.98544, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform 1,3" index="0"]
+
+position = Vector2( 0, -23.2805 )
+shape = SubResource( 1 )
+
+[node name="Platform 1,4" type="Area2D" parent="Platforms" index="3" groups=[
+"floor",
+]]
+
+editor/display_folded = true
+position = Vector2( 36.1208, 620.9 )
+scale = Vector2( 3.98544, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform 1,4" index="0"]
+
+position = Vector2( 0, -23.2805 )
+shape = SubResource( 1 )
+
+[node name="Platform 1,5" type="Area2D" parent="Platforms" index="4" groups=[
+"floor",
+]]
+
+editor/display_folded = true
+position = Vector2( 35.7438, 748.665 )
+scale = Vector2( 3.98544, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform 1,5" index="0"]
+
+position = Vector2( 0, -23.2805 )
+shape = SubResource( 1 )
+
+[node name="Platform 2,1" type="Area2D" parent="Platforms" index="5" groups=[
+"floor",
+]]
+
+editor/display_folded = true
+position = Vector2( 387.454, 236.567 )
+scale = Vector2( 5.01416, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform 2,1" index="0"]
+
+position = Vector2( 0, -23.2805 )
+shape = SubResource( 1 )
+
+[node name="Platform 2,2" type="Area2D" parent="Platforms" index="6" groups=[
+"floor",
+]]
+
+editor/display_folded = true
+position = Vector2( 387.751, 364.293 )
+scale = Vector2( 5.00488, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform 2,2" index="0"]
+
+position = Vector2( 0, -23.2805 )
+shape = SubResource( 1 )
+
+[node name="Platform 2,3" type="Area2D" parent="Platforms" index="7" groups=[
+"floor",
+]]
+
+editor/display_folded = true
+position = Vector2( 387.58, 492.345 )
+scale = Vector2( 4.99778, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform 2,3" index="0"]
+
+position = Vector2( 0, -23.2805 )
+shape = SubResource( 1 )
+
+[node name="Platform 2,4" type="Area2D" parent="Platforms" index="8" groups=[
+"floor",
+]]
+
+editor/display_folded = true
+position = Vector2( 387.738, 620.447 )
+scale = Vector2( 5.00331, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform 2,4" index="0"]
+
+position = Vector2( 0, -23.2805 )
+shape = SubResource( 1 )
+
+[node name="Platform 2,5" type="Area2D" parent="Platforms" index="9" groups=[
+"floor",
+]]
+
+editor/display_folded = true
+position = Vector2( 387.661, 748.771 )
+scale = Vector2( 4.99324, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform 2,5" index="0"]
+
+position = Vector2( 0, -23.2805 )
+shape = SubResource( 1 )
+
+[node name="Platform 3,1" type="Area2D" parent="Platforms" index="10" groups=[
+"floor",
+]]
+
+editor/display_folded = true
+position = Vector2( 740.33, 236.599 )
+scale = Vector2( 3.98544, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform 3,1" index="0"]
+
+position = Vector2( 0, -23.2805 )
+shape = SubResource( 1 )
+
+[node name="Platform 3,2" type="Area2D" parent="Platforms" index="11" groups=[
+"floor",
+]]
+
+editor/display_folded = true
+position = Vector2( 739.929, 363.869 )
+scale = Vector2( 3.98544, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform 3,2" index="0"]
+
+position = Vector2( 0, -23.2805 )
+shape = SubResource( 1 )
+
+[node name="Platform 3,3" type="Area2D" parent="Platforms" index="12" groups=[
+"floor",
+]]
+
+editor/display_folded = true
+position = Vector2( 739.929, 491.935 )
+scale = Vector2( 3.98544, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform 3,3" index="0"]
+
+position = Vector2( 0, -23.2805 )
+shape = SubResource( 1 )
+
+[node name="Platform 3,4" type="Area2D" parent="Platforms" index="13" groups=[
+"floor",
+]]
+
+editor/display_folded = true
+position = Vector2( 739.501, 619.453 )
+scale = Vector2( 3.98544, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform 3,4" index="0"]
+
+position = Vector2( 0, -23.2805 )
+shape = SubResource( 1 )
+
+[node name="Platform 3,5" type="Area2D" parent="Platforms" index="14" groups=[
+"floor",
+]]
+
+editor/display_folded = true
+position = Vector2( 739.478, 748.771 )
+scale = Vector2( 3.98544, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform 3,5" index="0"]
+
+position = Vector2( 0, -23.2805 )
+shape = SubResource( 1 )
+
+[node name="Ropes" type="Node2D" parent="." index="3"]
+
+editor/display_folded = true
+
+[node name="Rope1" type="Area2D" parent="Ropes" index="0" groups=[
+"jump",
+]]
+
+editor/display_folded = true
+position = Vector2( -124.639, 862.205 )
+scale = Vector2( 1, 1.41026 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ropes/Rope1" index="0"]
+
+position = Vector2( 0.528992, 6.64607 )
+scale = Vector2( 0.61434, 2.72737 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Ropes/Rope1" index="1"]
+
+position = Vector2( 0.697998, 4.60413 )
+scale = Vector2( 1, 0.709088 )
+texture = ExtResource( 5 )
+
+[node name="Rope2" type="Area2D" parent="Ropes" index="1" groups=[
+"jump",
+]]
+
+editor/display_folded = true
+position = Vector2( 194.19, 861.663 )
+scale = Vector2( 1, 1.41026 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ropes/Rope2" index="0"]
+
+position = Vector2( 0.528992, 6.64607 )
+scale = Vector2( 0.61434, 2.72737 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Ropes/Rope2" index="1"]
+
+position = Vector2( 0.697998, 4.60413 )
+scale = Vector2( 1, 0.709088 )
+texture = ExtResource( 5 )
+
+[node name="Rope3" type="Area2D" parent="Ropes" index="2" groups=[
+"jump",
+]]
+
+editor/display_folded = true
+position = Vector2( 579.431, 862.891 )
+scale = Vector2( 1, 1.41026 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ropes/Rope3" index="0"]
+
+position = Vector2( 0.528992, 6.64607 )
+scale = Vector2( 0.61434, 2.72737 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Ropes/Rope3" index="1"]
+
+position = Vector2( 0.697998, 4.60413 )
+scale = Vector2( 1, 0.709088 )
+texture = ExtResource( 5 )
+
+[node name="Rope4" type="Area2D" parent="Ropes" index="3" groups=[
+"jump",
+]]
+
+position = Vector2( 899.556, 862.889 )
+scale = Vector2( 1, 1.41026 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ropes/Rope4" index="0"]
+
+position = Vector2( 0.528992, 6.64607 )
+scale = Vector2( 0.61434, 2.72737 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Ropes/Rope4" index="1"]
+
+position = Vector2( 0.697998, 4.60413 )
+scale = Vector2( 1, 0.709088 )
+texture = ExtResource( 5 )
+
+[node name="Pick-up Items" type="Node2D" parent="." index="4"]
+
+editor/display_folded = true
+
+[node name="Area2D" type="Area2D" parent="Pick-up Items" index="0"]
+
+editor/display_folded = true
 position = Vector2( 707.38, 826.24 )
 scale = Vector2( 0.859376, 1.00749 )
 input_pickable = true
@@ -59,24 +499,25 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 4 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pick-up Items/Area2D" index="0"]
 
 visible = false
 position = Vector2( 4.26373, -1.3216 )
 scale = Vector2( 1.77553, 2.01788 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
-[node name="soup" type="Sprite" parent="Area2D" index="1"]
+[node name="soup" type="Sprite" parent="Pick-up Items/Area2D" index="1"]
 
 position = Vector2( 2.37006, -8.65501 )
 scale = Vector2( 1.14357, 1.05849 )
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
 
-[node name="Area2D3" type="Area2D" parent="." index="3"]
+[node name="Area2D3" type="Area2D" parent="Pick-up Items" index="1"]
 
+editor/display_folded = true
 position = Vector2( 446.38, 821.736 )
 scale = Vector2( 0.859376, 1.05447 )
 input_pickable = true
@@ -86,24 +527,25 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 4 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pick-up Items/Area2D3" index="0"]
 
 visible = false
 position = Vector2( 4.26373, -1.3216 )
 scale = Vector2( 1.77553, 2.01788 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
-[node name="sundae" type="Sprite" parent="Area2D3" index="1"]
+[node name="sundae" type="Sprite" parent="Pick-up Items/Area2D3" index="1"]
 
 position = Vector2( 2.37006, -8.65503 )
 scale = Vector2( 1.14357, 1.05849 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 
-[node name="Area2D4" type="Area2D" parent="." index="4"]
+[node name="Area2D4" type="Area2D" parent="Pick-up Items" index="2"]
 
+editor/display_folded = true
 position = Vector2( 321.38, 564.736 )
 scale = Vector2( 0.859376, 1.05447 )
 input_pickable = true
@@ -113,24 +555,26 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 4 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pick-up Items/Area2D4" index="0"]
 
 visible = false
 position = Vector2( 4.26373, -1.3216 )
 scale = Vector2( 1.77553, 2.01788 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
-[node name="apple" type="Sprite" parent="Area2D4" index="1"]
+[node name="apple" type="Sprite" parent="Pick-up Items/Area2D4" index="1"]
 
-position = Vector2( 2.37006, -8.65501 )
-scale = Vector2( 1.14357, 1.05849 )
-texture = ExtResource( 7 )
+position = Vector2( 2.37006, -3.44335 )
+scale = Vector2( 1.14357, 0.895626 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="Area2D5" type="Area2D" parent="." index="5"]
+[node name="Area2D5" type="Area2D" parent="Pick-up Items" index="3"]
 
+editor/display_folded = true
 position = Vector2( 451.38, 438.736 )
 scale = Vector2( 0.859376, 1.05447 )
 input_pickable = true
@@ -140,24 +584,25 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 4 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pick-up Items/Area2D5" index="0"]
 
 visible = false
 position = Vector2( 4.26373, -1.3216 )
 scale = Vector2( 1.77553, 2.01788 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
-[node name="pizza" type="Sprite" parent="Area2D5" index="1"]
+[node name="pizza" type="Sprite" parent="Pick-up Items/Area2D5" index="1"]
 
 position = Vector2( 2.37006, -8.65501 )
 scale = Vector2( 1.14357, 1.05849 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 
-[node name="Area2D6" type="Area2D" parent="." index="6"]
+[node name="Area2D6" type="Area2D" parent="Pick-up Items" index="4"]
 
+editor/display_folded = true
 position = Vector2( 2.38013, 439.736 )
 scale = Vector2( 0.859376, 1.05447 )
 input_pickable = true
@@ -167,24 +612,25 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 4 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D6" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pick-up Items/Area2D6" index="0"]
 
 visible = false
 position = Vector2( 4.26373, -1.3216 )
 scale = Vector2( 1.77553, 2.01788 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
-[node name="bread" type="Sprite" parent="Area2D6" index="1"]
+[node name="bread" type="Sprite" parent="Pick-up Items/Area2D6" index="1"]
 
 position = Vector2( 2.37006, -8.65501 )
 scale = Vector2( 1.14357, 1.05849 )
-texture = ExtResource( 9 )
+texture = ExtResource( 11 )
 
-[node name="Area2D7" type="Area2D" parent="." index="7"]
+[node name="Area2D7" type="Area2D" parent="Pick-up Items" index="5"]
 
+editor/display_folded = true
 position = Vector2( 770.38, 437.736 )
 scale = Vector2( 0.859376, 1.05447 )
 input_pickable = true
@@ -194,24 +640,25 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 4 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D7" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pick-up Items/Area2D7" index="0"]
 
 visible = false
 position = Vector2( 4.26373, -1.3216 )
 scale = Vector2( 1.77553, 2.01788 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
-[node name="bread" type="Sprite" parent="Area2D7" index="1"]
+[node name="bread" type="Sprite" parent="Pick-up Items/Area2D7" index="1"]
 
 position = Vector2( 2.37006, -8.65501 )
 scale = Vector2( 1.14357, 1.05849 )
-texture = ExtResource( 9 )
+texture = ExtResource( 11 )
 
-[node name="Area2D8" type="Area2D" parent="." index="8"]
+[node name="Area2D8" type="Area2D" parent="Pick-up Items" index="6"]
 
+editor/display_folded = true
 position = Vector2( 770.38, 181.736 )
 scale = Vector2( 0.859376, 1.05447 )
 input_pickable = true
@@ -221,24 +668,25 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 4 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D8" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pick-up Items/Area2D8" index="0"]
 
 visible = false
 position = Vector2( 4.26373, -1.3216 )
 scale = Vector2( 1.77553, 2.01788 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
-[node name="apple" type="Sprite" parent="Area2D8" index="1"]
+[node name="apple" type="Sprite" parent="Pick-up Items/Area2D8" index="1"]
 
 position = Vector2( 2.37006, -8.65501 )
 scale = Vector2( 1.14357, 1.05849 )
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 
-[node name="Area2D9" type="Area2D" parent="." index="9"]
+[node name="Area2D9" type="Area2D" parent="Pick-up Items" index="7"]
 
+editor/display_folded = true
 position = Vector2( -65.6199, 182.736 )
 scale = Vector2( 0.859376, 1.05447 )
 input_pickable = true
@@ -248,24 +696,25 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 4 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D9" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pick-up Items/Area2D9" index="0"]
 
 visible = false
 position = Vector2( 4.26373, -1.3216 )
 scale = Vector2( 1.77553, 2.01788 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
-[node name="sundae" type="Sprite" parent="Area2D9" index="1"]
+[node name="sundae" type="Sprite" parent="Pick-up Items/Area2D9" index="1"]
 
 position = Vector2( 2.37006, -8.65501 )
 scale = Vector2( 1.14357, 1.05849 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 
-[node name="Area2D2" type="Area2D" parent="." index="10"]
+[node name="Area2D2" type="Area2D" parent="Pick-up Items" index="8"]
 
+editor/display_folded = true
 position = Vector2( -54.6199, 820.24 )
 scale = Vector2( 0.859376, 1.00749 )
 input_pickable = true
@@ -275,38 +724,135 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 4 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pick-up Items/Area2D2" index="0"]
 
-visible = false
 position = Vector2( 4.26373, -1.3216 )
 scale = Vector2( 1.77553, 2.01788 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
-[node name="soup" type="Sprite" parent="Area2D2" index="1"]
+[node name="soup" type="Sprite" parent="Pick-up Items/Area2D2" index="1"]
 
 position = Vector2( -1.12085, -3.6922 )
 scale = Vector2( 1.14357, 1.05849 )
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
+[node name="Going Down" type="Node2D" parent="." index="5"]
 
-[connection signal="body_entered" from="Area2D3" to="Area2D3" method="_on_Area2D_body_entered"]
+editor/display_folded = true
 
-[connection signal="body_entered" from="Area2D4" to="Area2D4" method="_on_Area2D_body_entered"]
+[node name="Down1" type="Area2D" parent="Going Down" index="0" groups=[
+"down",
+]]
 
-[connection signal="body_entered" from="Area2D5" to="Area2D5" method="_on_Area2D_body_entered"]
+editor/display_folded = true
+position = Vector2( -123.707, 108.389 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
 
-[connection signal="body_entered" from="Area2D6" to="Area2D6" method="_on_Area2D_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Going Down/Down1" index="0"]
 
-[connection signal="body_entered" from="Area2D7" to="Area2D7" method="_on_Area2D_body_entered"]
+position = Vector2( -0.9217, 23 )
+scale = Vector2( 3.29582, 1 )
+shape = SubResource( 4 )
 
-[connection signal="body_entered" from="Area2D8" to="Area2D8" method="_on_Area2D_body_entered"]
+[node name="Down2" type="Area2D" parent="Going Down" index="1" groups=[
+"down",
+]]
 
-[connection signal="body_entered" from="Area2D9" to="Area2D9" method="_on_Area2D_body_entered"]
+editor/display_folded = true
+position = Vector2( 196.082, 108.857 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
 
-[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_Area2D_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Going Down/Down2" index="0"]
+
+position = Vector2( -0.9217, 23 )
+scale = Vector2( 3.29582, 1 )
+shape = SubResource( 4 )
+
+[node name="Down3" type="Area2D" parent="Going Down" index="2" groups=[
+"down",
+]]
+
+editor/display_folded = true
+position = Vector2( 580.249, 108.267 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Going Down/Down3" index="0"]
+
+position = Vector2( -0.9217, 23 )
+scale = Vector2( 3.29582, 1 )
+shape = SubResource( 4 )
+
+[node name="Down4" type="Area2D" parent="Going Down" index="3" groups=[
+"down",
+]]
+
+editor/display_folded = true
+position = Vector2( 901.02, 107.88 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Going Down/Down4" index="0"]
+
+position = Vector2( -0.9217, 23 )
+scale = Vector2( 3.29582, 1 )
+shape = SubResource( 4 )
+
+[node name="Enemy" parent="." index="6" instance=ExtResource( 12 )]
+
+position = Vector2( 664.365, 688.339 )
+scale = Vector2( 1.29822, 0.943587 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = ExtResource( 13 )
+volume_db = -0.19
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[connection signal="body_entered" from="Pick-up Items/Area2D" to="Pick-up Items/Area2D" method="_on_Area2D_body_entered"]
+
+[connection signal="body_entered" from="Pick-up Items/Area2D3" to="Pick-up Items/Area2D3" method="_on_Area2D_body_entered"]
+
+[connection signal="body_entered" from="Pick-up Items/Area2D4" to="Pick-up Items/Area2D4" method="_on_Area2D_body_entered"]
+
+[connection signal="body_entered" from="Pick-up Items/Area2D5" to="Pick-up Items/Area2D5" method="_on_Area2D_body_entered"]
+
+[connection signal="body_entered" from="Pick-up Items/Area2D6" to="Pick-up Items/Area2D6" method="_on_Area2D_body_entered"]
+
+[connection signal="body_entered" from="Pick-up Items/Area2D7" to="Pick-up Items/Area2D7" method="_on_Area2D_body_entered"]
+
+[connection signal="body_entered" from="Pick-up Items/Area2D8" to="Pick-up Items/Area2D8" method="_on_Area2D_body_entered"]
+
+[connection signal="body_entered" from="Pick-up Items/Area2D9" to="Pick-up Items/Area2D9" method="_on_Area2D_body_entered"]
+
+[connection signal="body_entered" from="Pick-up Items/Area2D2" to="Pick-up Items/Area2D2" method="_on_Area2D_body_entered"]
 
 
