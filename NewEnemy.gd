@@ -30,7 +30,7 @@ func _process(delta):
 		velocity.x = 0
 	move_and_slide(velocity,Vector2(0,0))
 
-func _on_JumpBox1_area_entered(area):
+func _on_JumpBox_area_entered(area):
 	if area.is_in_group("jump"):
 		velocity.y = jumpV
 		set_collision_mask_bit(2, false)
@@ -38,14 +38,12 @@ func _on_JumpBox1_area_entered(area):
 		velocity.y = 0
 		set_collision_mask_bit(2, true)
 
-
-func _on_DownBox1_area_entered(area):
+func _on_DownBox_area_entered(area):
 	if area.is_in_group("down"):
 		velocity.y = gravity
 		set_collision_mask_bit(2, false)
 
-
-func _on_JumpBox1_area_exited(area):
+func _on_JumpBox_area_exited(area):
 	if area.is_in_group("floor"):
 		velocity.y = gravity
 		set_collision_mask_bit(2, false)
