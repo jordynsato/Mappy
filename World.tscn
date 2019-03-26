@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,12 @@
 [ext_resource path="res://pizza.png" type="Texture" id=11]
 [ext_resource path="res://bread.png" type="Texture" id=12]
 [ext_resource path="res://bensound-funnysong.wav" type="AudioStream" id=13]
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=14]
+[ext_resource path="res://png/dog/Run (1).png" type="Texture" id=15]
+[ext_resource path="res://png/dog/Run (2).png" type="Texture" id=16]
+[ext_resource path="res://png/dog/Run (3).png" type="Texture" id=17]
+[ext_resource path="res://png/dog/Run (4).png" type="Texture" id=18]
+[ext_resource path="res://png/dog/Run (5).png" type="Texture" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -34,7 +40,27 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="World" type="Node2D"]
+[sub_resource type="SpriteFrames" id=5]
+
+animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 15.7927 )
+
+[node name="World" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
@@ -377,7 +403,6 @@ shape = SubResource( 1 )
 
 [node name="Ropes" type="Node2D" parent="." index="4"]
 
-editor/display_folded = true
 _sections_unfolded = [ "Visibility" ]
 
 [node name="Rope1" type="Area2D" parent="Ropes" index="0" groups=[
@@ -477,6 +502,7 @@ texture = ExtResource( 6 )
 "jump",
 ]]
 
+editor/display_folded = true
 position = Vector2( 899.556, 862.889 )
 scale = Vector2( 1, 1.41026 )
 input_pickable = true
@@ -779,8 +805,6 @@ texture = ExtResource( 8 )
 
 [node name="Going Down" type="Node2D" parent="." index="6"]
 
-editor/display_folded = true
-
 [node name="Down1" type="Area2D" parent="Going Down" index="0" groups=[
 "down",
 ]]
@@ -872,6 +896,73 @@ attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
+[node name="Enemy1" type="KinematicBody2D" parent="." index="8"]
+
+position = Vector2( 676.615, 816.456 )
+scale = Vector2( 1.27422, 0.899089 )
+input_pickable = false
+collision_layer = 8
+collision_mask = 7
+collision/safe_margin = 0.08
+script = ExtResource( 14 )
+_sections_unfolded = [ "Collision", "collision" ]
+gravity = 400
+jumpV = -400
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemy1" index="0"]
+
+position = Vector2( -0.657897, 0.39217 )
+scale = Vector2( 0.113226, 0.135633 )
+frames = SubResource( 5 )
+animation = "walk"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemy1" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -6.0661, -30.2409, -14.8098, 0.459985, -7.52338, 28.2826, 2.6776, 28.2826, 13.6072, 1.41939, 10.6927, -29.2815 )
+
+[node name="JumpBox" type="Area2D" parent="Enemy1" index="2"]
+
+position = Vector2( -3.88017, 24.445 )
+scale = Vector2( 0.387091, 0.239851 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+collision_mask = 7
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy1/JumpBox" index="0"]
+
+position = Vector2( -2.31628, 0.252678 )
+scale = Vector2( 2.56878, 3.10122 )
+shape = SubResource( 6 )
+
+[node name="DownBox" type="Area2D" parent="Enemy1" index="3"]
+
+position = Vector2( 0.580044, -23.9249 )
+scale = Vector2( 0.981874, 0.252346 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+collision_mask = 7
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy1/DownBox" index="0"]
+
+position = Vector2( -0.461044, 4.91064 )
+scale = Vector2( 1.51273, 1.8461 )
+shape = SubResource( 7 )
+
 [connection signal="body_entered" from="Pick-up Items/Area2D" to="Pick-up Items/Area2D" method="_on_Area2D_body_entered"]
 
 [connection signal="body_entered" from="Pick-up Items/Area2D3" to="Pick-up Items/Area2D3" method="_on_Area2D_body_entered"]
@@ -889,5 +980,11 @@ area_mask = 1
 [connection signal="body_entered" from="Pick-up Items/Area2D9" to="Pick-up Items/Area2D9" method="_on_Area2D_body_entered"]
 
 [connection signal="body_entered" from="Pick-up Items/Area2D2" to="Pick-up Items/Area2D2" method="_on_Area2D_body_entered"]
+
+[connection signal="area_entered" from="Enemy1/JumpBox" to="Enemy1" method="_on_JumpBox_area_entered"]
+
+[connection signal="area_exited" from="Enemy1/JumpBox" to="Enemy1" method="_on_JumpBox_area_exited"]
+
+[connection signal="area_entered" from="Enemy1/DownBox" to="Enemy1" method="_on_DownBox_area_entered"]
 
 
