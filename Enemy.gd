@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-onready var player_scene = preload("res://Player.tscn")
+#onready var player_scene = preload("res://Player.tscn")
 var velocity = Vector2()
 var SPEED = 100
 var integer = 0
