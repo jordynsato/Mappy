@@ -1,12 +1,10 @@
 extends Control
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var count = 0
+var soundCount = 0
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
+	$AudioStreamPlayer2D.play()
 	pass
 
 #func _process(delta):
@@ -20,8 +18,15 @@ func _on_Button_pressed():
 
 
 func _on_Music_toggled(button_pressed):
+	count = count+1
+	if(count%2== 0):
+		$AudioStreamPlayer2D.play()
+	else:
+		$AudioStreamPlayer2D.stop()
+
+	#	musicPlayer.volume_db=0
 	pass # replace with function body
 
 
-func _on_Sound_toggled(button_pressed):
-	pass # replace with function body
+
+

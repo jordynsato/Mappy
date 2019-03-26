@@ -145,7 +145,21 @@ text = "Settings"
 flat = false
 align = 1
 
+[node name="shutup" type="AudioStreamPlayer2D" parent="." index="1"]
+
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Start OG Game" to="." method="_on_Start_OG_Game_pressed"]
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Start Variant" to="." method="_on_Start_Variant_pressed"]
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Sound Menu" to="." method="_on_Sound_Menu_pressed"]
 
